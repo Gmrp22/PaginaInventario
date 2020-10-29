@@ -10,3 +10,12 @@ class Producto(models.Model):
     lote = models.IntegerField(blank = False, null = False)
     Tipo = models.CharField(max_length=200, blank = False, null = False)
     Fecha = models.DateField(blank = False, null = True)
+
+
+    def __str__(self):
+        return self.nombre
+
+class Meta:
+    ordering = ['nombre']
+    verbose_name = 'Producto'
+    verbose_name_plural = 'Productos'
