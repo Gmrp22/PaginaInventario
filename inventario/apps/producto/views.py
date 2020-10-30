@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView
+from django.views.generic import ListView, DeleteView
 from django.shortcuts import HttpResponse
 from django.urls import reverse_lazy
 from apps.producto.forms import ProductoForm
@@ -22,6 +22,10 @@ def agregarProducto(request):
 
 # return render(request, 'producto/agregarProducto.html')
 
+class eliminar(DeleteView):
+    model = Producto
+    template_name = 'producto/confirmarEliminar.html'
+    success_url = reverse_lazy("producto:eliminarProducto")
 
 class eliminarProducto(ListView):
     model = Producto

@@ -1,0 +1,10 @@
+{% extends 'Plantillas/ConfirmarEliminar.html' %}
+
+{% block content %}
+    <form method="POST" id="producto" >
+        {% csrf_token %}
+        <h3>¿DESEA ELIMINAR EL PRODUCTO {{producto.nombre}} ? </h3>
+        <button class="tm-more-button" type="submit" name="submit">Eliminar</button>
+        <a class="clase" href="{% url 'producto:eliminarProducto' %}"> Cancelar</a>
+    </form>
+{% endblock %}

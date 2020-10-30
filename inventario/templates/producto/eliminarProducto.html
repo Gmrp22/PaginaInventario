@@ -12,7 +12,7 @@
         <td>{{producto.lote}}</td>
         <td>{{producto.Tipo}}</td>
         <td>{{producto.Fecha}}</td>
-        <td><a class="clase" href="{% url 'producto:eliminarProducto' %}"> Eliminar</a>
+        <td><a class="clase" href="{% url 'producto:confirmarProducto' producto.id %}"> Eliminar</a>
         </td>
     </tr>
     {% endfor %}
