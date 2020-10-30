@@ -1,4 +1,9 @@
 {% extends 'Plantillas/contact.html' %}
-{% block header %} 
-<h1>PROPIO</h1>
+
+{% block content %}
+    <form method="POST" id="producto" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="tm-more-button" type="submit" name="submit">Agregar</button>
+    </form>
 {% endblock %}

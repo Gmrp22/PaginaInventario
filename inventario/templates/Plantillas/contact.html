@@ -48,10 +48,11 @@ http://www.templatemo.com/tm-466-cafe-house
   </div>
   <nav class="tm-nav">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="today-special.html">Today Special</a></li>
-      <li><a href="menu.html">Menu</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="{% url 'producto:main' %}">Home</a></li>
+      <li><a href="#" class="active">Agregar Producto</a></li>
+      <li><a href="today-special.html">Eliminar</a></li>
+      <li><a href="menu.html">Buscar</a></li>
+
     </ul>
   </nav>
   </div>
@@ -86,47 +87,55 @@ http://www.templatemo.com/tm-466-cafe-house
   <div class="tm-main-section light-gray-bg">
     <div class="container" id="main">
       <section class="tm-section row">
-        <h2 class="col-lg-12 margin-bottom-30 tm-site-name tm-handwriting-font" style="font-size: 90px; text-align: left;">Nuevo Producto</h2>
-        <form action="#" method="post" class="tm-contact-form">
+        <h2 class="col-lg-12 margin-bottom-30 tm-site-name tm-handwriting-font"
+          style="font-size: 90px; text-align: left;">Nuevo Producto</h2>
+          {% block content %}
+          
+          {% endblock %}
+          
+        <!-- <form action="#" method="post" class="tm-contact-form">
+          {% csrf_token %}
           <div class="col-lg-6 col-md-6">
             <div class="form-group">
-              <label for="nombre" >Nombre Producto</label>
-              <input type="text" id="nombre" class="form-control" placeholder="NOMBRE PRODUCTO" />
+              <label for="nombre">Nombre Producto</label>
+              <input type="text" id="nombre" class="form-control" placeholder="NOMBRE PRODUCTO" name="nombre" />
             </div>
             <div class="form-group">
               <label for="existencia">Existencia</label>
-              <input type="text" id="existencia" class="form-control" placeholder="EXISTENCIA PRODUCTO" />
+              <input type="text" id="existencia" class="form-control" placeholder="EXISTENCIA PRODUCTO"
+                name="existencia" />
             </div>
             <div class="form-group">
               <label for="dimension">Dimension</label>
-              <input type="text" id="dimension" class="form-control" placeholder="DIMENSION" />
+              <input type="text" id="dimension" class="form-control" placeholder="DIMENSION" name="dimension" />
             </div>
             <div class="form-group">
-              <label for="desc">Descripcion</label>
-              <textarea id="desc" class="form-control" rows="6" placeholder="DESCRIPCION"></textarea>
+              <label for="descripcion">Descripcion</label>
+              <textarea id="descripcion" class="form-control" rows="6" placeholder="DESCRIPCION"
+                name="descripcion"></textarea>
             </div>
             <div class="form-group">
               <label for="lote">Lote</label>
-              <input type="text" id="lote" class="form-control" placeholder="LOTE" />
+              <input type="text" id="lote" class="form-control" placeholder="LOTE" name="lote" />
             </div>
             <div class="form-group">
               <label>TIPO Producto</label>
-              <select class="form-control" id = "op" >
-                <option  class="form-control" onclick="dec()" selected>Perecedero</option>
-                <option  class="form-control" onclick="dec()">No Perecedero</option>
-                
+              <select class="form-control" id="tipo" name="tipo">
+                <option class="form-control" onclick="dec()" selected>Perecedero</option>
+                <option class="form-control" onclick="dec()">No Perecedero</option>
+
               </select>
             </div>
             <div class="form-group">
               <label>Fecha de vencimiento</label>
-              <input type="date" id="fecha" class="form-control" placeholder="FECHA VENCIMIENTO" />
+              <input type="date" id="fecha" class="form-control" placeholder="FECHA VENCIMIENTO" name="fecha" />
             </div><br>
             <div class="form-group">
               <button class="tm-more-button" type="submit" name="submit">Agregar</button>
             </div>
           </div>
 
-        </form>
+        </form> -->
 
 
       </section>
@@ -184,15 +193,15 @@ http://www.templatemo.com/tm-466-cafe-house
   <script type="text/javascript" src="{% static 'js/jquery-1.11.2.min.js' %}"></script> <!-- jQuery -->
   <script type="text/javascript" src="{% static 'js/templatemo-script.js'%}"></script> <!-- Templatemo Script -->
   <script>
-    function dec(){
-      var valor = document.getElementById("op").selectedIndex;
-      if (valor == 0){
+    function dec() {
+      var valor = document.getElementById("tipo").selectedIndex;
+      if (valor == 0) {
         document.getElementById("fecha").disabled = false;
-       
+
       }
-      else if(valor==1){
+      else if (valor == 1) {
         document.getElementById("fecha").disabled = true;
-        
+
       }
     }
   </script>
