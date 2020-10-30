@@ -33,7 +33,7 @@ http://www.templatemo.com/tm-466-cafe-house
             
         }
         
-        ul {
+        #lista {
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -45,7 +45,7 @@ http://www.templatemo.com/tm-466-cafe-house
         margin: 10px;
         }
 
-        li a {
+         li a {
         display: block;
         padding: 8px;
         }
@@ -71,11 +71,11 @@ http://www.templatemo.com/tm-466-cafe-house
         <i class="fa fa-bars"></i>
     </div>
     <nav class="tm-nav">
-        <ul>
-            <li><a href="{% url 'producto:main' %}">Home</a></li>
-            <li><a href="{% url 'producto:agregarProducto' %}">Agregar Producto</a></li>
-            <li><a href="{% url 'producto:eliminarProducto' %}">Eliminar</a></li>
-            <li><a href="#" class="active">Buscar</a></li>
+        <ul id="lista">
+            <li class="lis"><a href="{% url 'producto:main' %}">Home</a></li>
+            <li class="lis"><a href="{% url 'producto:agregarProducto' %}">Agregar Producto</a></li>
+            <li class="lis"><a href="{% url 'producto:eliminarProducto' %}">Eliminar</a></li>
+            <li class="lis"><a href="#" class="active">Buscar</a></li>
 
         </ul>
     </nav>
@@ -155,12 +155,11 @@ http://www.templatemo.com/tm-466-cafe-house
                     <nav class="col-lg-3 col-md-3 tm-footer-nav tm-footer-div">
                         <h3 class="tm-footer-div-title">Main Menu</h3>
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Directory</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Our Services</a></li>
-                        </ul>
+                            <li><a href="{% url 'producto:main' %}">Home</a></li>
+                            <li><a href="{% url 'producto:agregarProducto' %}">Agregar Producto</a></li>
+                            <li><a href="{% url 'producto:eliminarProducto' %}">Eliminar</a></li>
+                            <li><a href="{% url 'producto:listageneral' %}">Buscar</a></li>
+                          </ul>
                     </nav>
                     <div class="col-lg-5 col-md-5 tm-footer-div">
                         <h3 class="tm-footer-div-title">About Us</h3>

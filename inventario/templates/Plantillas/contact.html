@@ -93,49 +93,6 @@ http://www.templatemo.com/tm-466-cafe-house
           
           {% endblock %}
           
-        <!-- <form action="#" method="post" class="tm-contact-form">
-          {% csrf_token %}
-          <div class="col-lg-6 col-md-6">
-            <div class="form-group">
-              <label for="nombre">Nombre Producto</label>
-              <input type="text" id="nombre" class="form-control" placeholder="NOMBRE PRODUCTO" name="nombre" />
-            </div>
-            <div class="form-group">
-              <label for="existencia">Existencia</label>
-              <input type="text" id="existencia" class="form-control" placeholder="EXISTENCIA PRODUCTO"
-                name="existencia" />
-            </div>
-            <div class="form-group">
-              <label for="dimension">Dimension</label>
-              <input type="text" id="dimension" class="form-control" placeholder="DIMENSION" name="dimension" />
-            </div>
-            <div class="form-group">
-              <label for="descripcion">Descripcion</label>
-              <textarea id="descripcion" class="form-control" rows="6" placeholder="DESCRIPCION"
-                name="descripcion"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="lote">Lote</label>
-              <input type="text" id="lote" class="form-control" placeholder="LOTE" name="lote" />
-            </div>
-            <div class="form-group">
-              <label>TIPO Producto</label>
-              <select class="form-control" id="tipo" name="tipo">
-                <option class="form-control" onclick="dec()" selected>Perecedero</option>
-                <option class="form-control" onclick="dec()">No Perecedero</option>
-
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Fecha de vencimiento</label>
-              <input type="date" id="fecha" class="form-control" placeholder="FECHA VENCIMIENTO" name="fecha" />
-            </div><br>
-            <div class="form-group">
-              <button class="tm-more-button" type="submit" name="submit">Agregar</button>
-            </div>
-          </div>
-
-        </form> -->
 
 
       </section>
@@ -153,11 +110,10 @@ http://www.templatemo.com/tm-466-cafe-house
           <nav class="col-lg-3 col-md-3 tm-footer-nav tm-footer-div">
             <h3 class="tm-footer-div-title">Main Menu</h3>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Directory</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Our Services</a></li>
+              <li><a href="{% url 'producto:main' %}">Home</a></li>
+              <li><a href="{% url 'producto:agregarProducto' %}">Agregar Producto</a></li>
+              <li><a href="{% url 'producto:eliminarProducto' %}">Eliminar</a></li>
+              <li><a href="{% url 'producto:listageneral' %}">Buscar</a></li>
             </ul>
           </nav>
           <div class="col-lg-5 col-md-5 tm-footer-div">
