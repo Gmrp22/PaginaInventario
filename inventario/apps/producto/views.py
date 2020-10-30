@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView
 from django.shortcuts import HttpResponse
 from django.urls import reverse_lazy
 from apps.producto.forms import ProductoForm
@@ -23,21 +23,13 @@ def agregarProducto(request):
 # return render(request, 'producto/agregarProducto.html')
 
 
-def eliminarProducto(request):
-    if request.method == 'POST':
-        form = ProductoForm(request.POST)
-        if form.is_valid():
-            form.save()
-        return reverse_lazy('producto: main')
-    else:
-        form = ProductoForm()
-    return render(request, 'producto/eliminarProducto.html', {'form': form})
-    # def eliminarProducto(request):
- #   return render(request, 'producto/eliminarProducto.html')
+class eliminarProducto(ListView):
+    model = Producto
+    template_name = 'producto/eliminarProducto.html'
 
-
-def listaGeneral(request):
-    return render(request, 'producto/listaGeneral.html')
+class listaGeneral(ListView):
+    model = Producto
+    template_name = 'producto/listaGeneral.html'
 
 
 # class ProductoCreat(CreateView):

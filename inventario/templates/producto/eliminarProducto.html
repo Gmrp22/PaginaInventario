@@ -1,9 +1,25 @@
-{% extends 'Plantillas/prueba.html' %}
+{% extends 'Plantillas/today-special.html' %}
 {% block content %}
-    <h2>New post</h2>
-    <form method="POST" >
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save</button>
-    </form>
+<tbody>
+    {% if object_list %}
+    {% for producto in object_list %}
+    <tr>
+        <td>{{producto.id}}</td>
+        <td>{{producto.nombre}}</td>
+        <td>{{producto.existencia}}</td>
+        <td>{{producto.dimension}}</td>
+        <td>{{producto.descripcion}}</td>
+        <td>{{producto.lote}}</td>
+        <td>{{producto.Tipo}}</td>
+        <td>{{producto.Fecha}}</td>
+        <td><a class="clase" href="{% url 'producto:eliminarProducto' %}"> Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay productos</h1>
+    {% endif %}
+</tbody>
 {% endblock %}
+
+
