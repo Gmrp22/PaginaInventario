@@ -35,6 +35,17 @@ class listaGeneral(ListView):
     model = Producto
     template_name = 'producto/listaGeneral.html'
 
+class listaE(ListView):
+    model = Producto
+    template_name = 'producto/listaPorExistencia.html'
+
+class listaF(ListView):
+    model = Producto
+    template_name = 'producto/listaPorFecha.html'
+
+class listaN(ListView):
+    model = Producto
+    template_name = 'producto/listaPorNombre.html'
 
 # class ProductoCreat(CreateView):
 #     model = Producto

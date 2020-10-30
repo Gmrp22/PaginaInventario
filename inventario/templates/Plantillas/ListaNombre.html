@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cafe Expreso Productos Inventario</title>
+    <title>Cafe Expreso Busqueda Nombre</title>
     <!-- 
 Cafe House Template
 http://www.templatemo.com/tm-466-cafe-house
@@ -33,22 +33,7 @@ http://www.templatemo.com/tm-466-cafe-house
             
         }
         
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
 
-        li {
-        float: left;
-        margin: 10px;
-        }
-
-        li a {
-        display: block;
-        padding: 8px;
-        }
     </style>
   </head>
   <body>
@@ -75,7 +60,7 @@ http://www.templatemo.com/tm-466-cafe-house
             <li><a href="{% url 'producto:main' %}">Home</a></li>
             <li><a href="{% url 'producto:agregarProducto' %}">Agregar Producto</a></li>
             <li><a href="{% url 'producto:eliminarProducto' %}">Eliminar</a></li>
-            <li><a href="#" class="active">Buscar</a></li>
+            <li><a href="{% url 'producto:listageneral' %}" class="active">Buscar</a></li>
 
         </ul>
     </nav>
@@ -92,7 +77,7 @@ http://www.templatemo.com/tm-466-cafe-house
             </div>
             <div class="row tm-welcome-content">
                 <h2 class="white-text tm-handwriting-font tm-welcome-header"><img
-                        src="{% static 'img/header-line.png' %}" alt="Line" class="tm-header-line">&nbsp;Productos
+                        src="{% static 'img/header-line.png' %}" alt="Line" class="tm-header-line">&nbsp;Busqueda por nombre
                     &nbsp;&nbsp;<img src="{% static 'img/header-line.png' %}" alt="Line" class="tm-header-line"></h2>
                 <h2 class="gold-text tm-welcome-header-2">Café Expreso</h2>
                 <p class="gray-text tm-welcome-description">Cafe House is free <span class="gold-text">responsive
@@ -102,12 +87,8 @@ http://www.templatemo.com/tm-466-cafe-house
                     commodo ligula eget dolor. Aenean massa.
                     Cum sociis natoque penatibus et magnis dis parturient montes,
                     nascetur ridiculusnec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
-                <ul>
-                    <li><a class="tm-more-button tm-more-button-welcome" href="{% url 'producto:listan'%}">Nombre</a></li>
-                    <li> <a class="tm-more-button tm-more-button-welcome" href="{% url 'producto:listae'%}">
-                        Existencia</a></li>
-                    <li> <a class="tm-more-button tm-more-button-welcome" href="{% url 'producto:listaf'%}">Fecha de caducidad</a></li>
-                </ul>
+                <a class="tm-more-button tm-more-button-welcome" href="#t1">Ir a tabla</a>
+
             </div>
             <img src="{% static 'img/table-set.png' %}" alt="Table Set" class="tm-table-set img-responsive">
         </div>
@@ -120,7 +101,7 @@ http://www.templatemo.com/tm-466-cafe-house
                 <h2 class="col-lg-12 margin-bottom-30 tm-site-name tm-handwriting-font"
                     style="font-size: 90px; text-align: left;">Productos</h2>
                 <br>
-                <table class="table">
+                <table class="table" id="t1">
                     <thead>
                         <th>ID</th>
                         <th>Nombre</th>
