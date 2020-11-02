@@ -15,4 +15,5 @@ urlpatterns = [
     path('listarpnombre/<nombre1>', listaPN, name="listapn"),
     path('listarpfecha/<nombre1>', listaPF, name="listapf"),
     path('listarpexistencia/<nombre1>', listaPE, name="listape"),
+    path('dashboard/', pie_chart, name='pie-chart'),
 ]

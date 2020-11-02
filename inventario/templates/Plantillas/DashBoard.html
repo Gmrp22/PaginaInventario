@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cafe Expreso Busqueda Fecha</title>
+    <title>Cafe Expreso Eliminar Producto</title>
     <!-- 
 Cafe House Template
 http://www.templatemo.com/tm-466-cafe-house
@@ -17,7 +17,7 @@ http://www.templatemo.com/tm-466-cafe-house
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/templatemo-style.css' %}" rel="stylesheet">
-    <link rel="shortcut icon" href="{% static 'img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,15 +26,31 @@ http://www.templatemo.com/tm-466-cafe-house
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-        table {
-            border-style: solid;
-            border-width: 4px;
-            border-color: #aa8757;
-            
-        }
-        
-
-    </style>
+      table {
+          border-style: solid;
+          border-width: 4px;
+          border-color: #aa8757;
+          
+      }
+      .clase {
+  background-color: #505050;
+  color: white;
+  display: inline-block;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  width: 58px;
+  border-radius: 2px;
+  text-align: center;
+  padding-top: 4px;
+  margin-right: 10px;
+}
+.clase:last-child { margin-right: 0; }
+.clase:hover,
+.clase:focus {
+  background-color: #BB8232;
+  color: white;
+}
+      </style>
   </head>
   <body>
     <!-- Preloader -->
@@ -55,15 +71,7 @@ http://www.templatemo.com/tm-466-cafe-house
     <div class="mobile-menu-icon">
         <i class="fa fa-bars"></i>
     </div>
-    <nav class="tm-nav">
-        <ul>
-            <li><a href="{% url 'producto:main' %}">Home</a></li>
-            <li><a href="{% url 'producto:agregarProducto' %}">Agregar Producto</a></li>
-            <li><a href="{% url 'producto:eliminarProducto' %}">Eliminar</a></li>
-            <li><a href="{% url 'producto:listageneral' %}" class="active">Buscar</a></li>
 
-        </ul>
-    </nav>
     </div>
     </div>
     </div>
@@ -77,10 +85,10 @@ http://www.templatemo.com/tm-466-cafe-house
             </div>
             <div class="row tm-welcome-content">
                 <h2 class="white-text tm-handwriting-font tm-welcome-header"><img
-                        src="{% static 'img/header-line.png' %}" alt="Line" class="tm-header-line">&nbsp;Busqueda por fecha
+                        src="{% static 'img/header-line.png' %}" alt="Line" class="tm-header-line">&nbsp;DashBoard
                     &nbsp;&nbsp;<img src="{% static 'img/header-line.png' %}" alt="Line" class="tm-header-line"></h2>
                 <h2 class="gold-text tm-welcome-header-2">Café Expreso</h2>
-                <a class="tm-more-button tm-more-button-welcome" href="#t1">Ir a tabla</a>
+
 
             </div>
             <img src="{% static 'img/table-set.png' %}" alt="Table Set" class="tm-table-set img-responsive">
@@ -91,18 +99,13 @@ http://www.templatemo.com/tm-466-cafe-house
     <div class="tm-main-section light-gray-bg">
         <div class="container" id="main">
             <section class="tm-section row">
+
                 <h2 class="col-lg-12 margin-bottom-30 tm-site-name tm-handwriting-font"
-                    style="font-size: 90px; text-align: left;">Productos</h2>
+                style="font-size: 90px; text-align: left;">DashBoard Productos</h2>
                 <br>
-                <table class="table" id="t1"></table>
+                {% block content %}
 
-
-                    {% block content %}
-
-                    {% endblock %}
-                
-
-
+                {% endblock %}
 
 
             </section>
@@ -111,44 +114,7 @@ http://www.templatemo.com/tm-466-cafe-house
 
 
 
-
-
-    <footer>
-        <div class="tm-black-bg">
-            <div class="container">
-                <div class="row margin-bottom-60">
-                    <nav class="col-lg-3 col-md-3 tm-footer-nav tm-footer-div">
-                        <h3 class="tm-footer-div-title">Main Menu</h3>
-                        <ul>
-                            <li><a href="{% url 'producto:main' %}">Home</a></li>
-                            <li><a href="{% url 'producto:agregarProducto' %}">Agregar Producto</a></li>
-                            <li><a href="{% url 'producto:eliminarProducto' %}">Eliminar</a></li>
-                            <li><a href="{% url 'producto:listageneral' %}">Buscar</a></li>
-                        </ul>
-                    </nav>
-                    <div class="col-lg-5 col-md-5 tm-footer-div">
-                        <h3 class="tm-footer-div-title">About Us</h3>
-
-                    </div>
-                    <div class="col-lg-4 col-md-4 tm-footer-div">
-                        <h3 class="tm-footer-div-title">Get Social</h3>
-                        <div class="tm-social-icons-container">
-                            <a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="tm-social-icon"><i class="fa fa-linkedin"></i></a>
-                            <a href="#" class="tm-social-icon"><i class="fa fa-youtube"></i></a>
-                            <a href="#" class="tm-social-icon"><i class="fa fa-behance"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row tm-copyright">
-                <p class="col-lg-12 small copyright-text text-center">Copyright &copy; 2084 Your Cafe House</p>
-            </div>
-        </div>
-    </footer> <!-- Footer content-->
+    <!-- Footer content-->
     <!-- JS -->
     <script type="text/javascript" src="{% static 'js/jquery-1.11.2.min.js' %}"></script> <!-- jQuery -->
     <script type="text/javascript" src="{% static 'js/templatemo-script.js'%}"></script> <!-- Templatemo Script -->

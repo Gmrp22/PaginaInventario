@@ -61,7 +61,7 @@ def listaF(request):
 
 def listaPE(request, nombre1):
     productos = Producto.objects.filter(existencia=nombre1)
-    return render(request, 'producto/Fecha.html', {'productos': productos})
+    return render(request, 'producto/Existencia.html', {'productos': productos})
 
 
 def listaE(request):
@@ -104,3 +104,16 @@ def listaN(request):
 #     form_class = ProductoForm
 #     template_name = 'producto/index.html'
 #     succes_url = reverse_lazy('producto:main')
+def pie_chart(request):
+    labels = []
+    data = []
+
+    queryset = Producto.objects.order_by('existencia')[:5]
+    for city in queryset:
+        labels.append(city.nombre)
+        data.append(city.existencia)
+
+    return render(request, 'producto/dash.html', {
+        'labels': labels,
+        'data': data,
+    })
