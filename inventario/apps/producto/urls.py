@@ -12,4 +12,5 @@ urlpatterns = [
     path('listarexistencia/', listaE.as_view(), name="listae"),
     path('listarfecha/', listaF.as_view(), name="listaf"),
     path('listarnombre/', listaN.as_view(), name="listan"),
+    path('listarpnombre/<nombre1>', listaPN, name="listapn"),
 ]

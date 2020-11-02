@@ -22,26 +22,38 @@ def agregarProducto(request):
 
 # return render(request, 'producto/agregarProducto.html')
 
+
 class eliminar(DeleteView):
     model = Producto
     template_name = 'producto/confirmarEliminar.html'
     success_url = reverse_lazy("producto:eliminarProducto")
 
+
 class eliminarProducto(ListView):
     model = Producto
     template_name = 'producto/eliminarProducto.html'
+
 
 class listaGeneral(ListView):
     model = Producto
     template_name = 'producto/listaGeneral.html'
 
+
 class listaE(ListView):
     model = Producto
     template_name = 'producto/listaPorExistencia.html'
 
+
 class listaF(ListView):
     model = Producto
     template_name = 'producto/listaPorFecha.html'
+
+
+def listaPN(request, nombre1):
+    productos = Producto.objects.filter(nombre = nombre1)
+    return render(request, 'producto/Nombre.html', {'productos': productos}) 
+
+
 
 class listaN(ListView):
     model = Producto

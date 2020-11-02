@@ -1,0 +1,21 @@
+{% extends 'Plantillas/IngresoNombre.html' %}
+{% block content %}
+<tbody>
+    {% if productos %}
+    {% for producto in productos %}
+    <tr>
+        <td>{{producto.id}}</td>
+        <td>{{producto.nombre}}</td>
+        <td>{{producto.existencia}}</td>
+        <td>{{producto.dimension}}</td>
+        <td>{{producto.descripcion}}</td>
+        <td>{{producto.lote}}</td>
+        <td>{{producto.Tipo}}</td>
+        <td>{{producto.Fecha}}</td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay productos</h1>
+    {% endif %}
+</tbody>
+{% endblock %}

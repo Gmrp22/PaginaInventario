@@ -5,7 +5,8 @@ from .models import Producto
 class ProductoForm(forms.ModelForm):
     class Meta:
         model = Producto
-        opciones = (('Perecedero', 'Perecedero'), ('No perecedero', 'No Perecedero'),)
+        opciones = (('Perecedero', 'Perecedero'),
+                    ('No perecedero', 'No Perecedero'),)
         fields = ['nombre', 'existencia', 'dimension', 'descripcion',
                   'lote', 'Tipo', 'Fecha']
         labels = {
@@ -27,4 +28,30 @@ class ProductoForm(forms.ModelForm):
             'Fecha': forms.DateInput(format=('%m/%d/%Y'),
                                      attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date', 'id': 'fecha'}),
 
+        }
+
+
+class ProductoFormDate(forms.ModelForm):
+    class Meta:
+        model = Producto
+        fields = ['Fecha']
+        labels = {
+
+            'fecha': 'Fecha',
+        }
+        widgets = {
+            'Fecha': forms.DateInput(format=('%m/%d/%Y'),
+                                     attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date', 'id': 'fecha'}),
+
+        }
+
+class ProductoFormName(forms.ModelForm):
+    class Meta:
+        model = Producto
+        fields = ['nombre',]
+        labels = {
+            'nombre': 'Nombre',
+        }
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
         }
