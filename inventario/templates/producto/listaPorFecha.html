@@ -1,10 +1,10 @@
 {% extends 'Plantillas/ListaFecha.html' %}
 {% block content %}
 <tbody>
-    <form method="POST" id="producto" >
+    <form method="POST" id="producto" ><br>
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="tm-more-button" type="submit" name="submit">Buscar</button>
+        <br><button class="tm-more-button" type="submit" name="submit">Buscar</button>
     </form>
 
 </tbody>
