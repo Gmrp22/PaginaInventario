@@ -9,8 +9,10 @@ urlpatterns = [
     path('listar/', listaGeneral.as_view(), name="listageneral"),
     path('confirmar/(?P<pk>\d+)/', eliminar.as_view(), name="confirmarProducto"),
 
-    path('listarexistencia/', listaE.as_view(), name="listae"),
-    path('listarfecha/', listaF.as_view(), name="listaf"),
+    path('listarexistencia/', listaE, name="listae"),
+    path('listarfecha/', listaF, name="listaf"),
     path('listarnombre/', listaN, name="listan"),
     path('listarpnombre/<nombre1>', listaPN, name="listapn"),
+    path('listarpfecha/<nombre1>', listaPF, name="listapf"),
+    path('listarpexistencia/<nombre1>', listaPE, name="listape"),
 ]

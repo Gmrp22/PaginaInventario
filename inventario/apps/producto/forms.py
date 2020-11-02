@@ -31,6 +31,18 @@ class ProductoForm(forms.ModelForm):
         }
 
 
+class ProductoFormExistencia(forms.ModelForm):
+    class Meta:
+        model = Producto
+        fields = ['existencia', ]
+        labels = {
+            'existencia': 'Existencia',
+        }
+        widgets = {
+            'existencia': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
+
 class ProductoFormDate(forms.ModelForm):
     class Meta:
         model = Producto
@@ -45,10 +57,11 @@ class ProductoFormDate(forms.ModelForm):
 
         }
 
+
 class ProductoFormName(forms.ModelForm):
     class Meta:
         model = Producto
-        fields = ['nombre',]
+        fields = ['nombre', ]
         labels = {
             'nombre': 'Nombre',
         }
