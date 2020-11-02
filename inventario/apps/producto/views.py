@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView, DeleteView
 from django.shortcuts import HttpResponse
 from django.urls import reverse_lazy
-from apps.producto.forms import ProductoForm
+from apps.producto.forms import ProductoForm, ProductoFormName, ProductoFormDate
 from apps.producto.models import Producto
 
 
@@ -50,14 +50,23 @@ class listaF(ListView):
 
 
 def listaPN(request, nombre1):
-    productos = Producto.objects.filter(nombre = nombre1)
-    return render(request, 'producto/Nombre.html', {'productos': productos}) 
+    productos = Producto.objects.filter(nombre=nombre1)
+    return render(request, 'producto/Nombre.html', {'productos': productos})
 
 
+def listaN(request):
+    if request.method == 'POST':
+        form = ProductoFormName(request.POST)
+        # if form.is_valid():
+        nombre1 = ''
+        for key, value in request.POST.items():
+            if key != 'csrfmiddlewaretoken':
+                nombre1 +=  value
 
-class listaN(ListView):
-    model = Producto
-    template_name = 'producto/listaPorNombre.html'
+        return redirect("producto:listapn",nombre1)
+    else:
+        form = ProductoFormName()
+    return render(request, 'producto/listaPorNombre.html', {'form': form})
 
 # class ProductoCreat(CreateView):
 #     model = Producto

@@ -1,21 +1,11 @@
 {% extends 'Plantillas/ListaNombre.html' %}
 {% block content %}
 <tbody>
-    {% if object_list %}
-    {% for producto in object_list %}
-    <tr>
-        <td>{{producto.id}}</td>
-        <td>{{producto.nombre}}</td>
-        <td>{{producto.existencia}}</td>
-        <td>{{producto.dimension}}</td>
-        <td>{{producto.descripcion}}</td>
-        <td>{{producto.lote}}</td>
-        <td>{{producto.Tipo}}</td>
-        <td>{{producto.Fecha}}</td>
-    </tr>
-    {% endfor %}
-    {% else %}
-    <h1>No hay productos</h1>
-    {% endif %}
+    <form method="POST" id="producto" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="tm-more-button" type="submit" name="submit">Buscar</button>
+    </form>
+
 </tbody>
 {% endblock %}
