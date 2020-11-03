@@ -20,10 +20,10 @@ class ProductoForm(forms.ModelForm):
         }
         widgets = {
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),
-            'existencia': forms.TextInput(attrs={'class': 'form-control'}),
+            'existencia': forms.TextInput(attrs={'class': 'form-control', 'type' : 'number'}),
             'dimension': forms.TextInput(attrs={'class': 'form-control'}),
             'descripcion': forms.Textarea(attrs={'class': 'form-control'}),
-            'lote': forms.TextInput(attrs={'class': 'form-control'}),
+            'lote': forms.TextInput(attrs={'class': 'form-control', 'type' : 'number'}),
             'Tipo': forms.Select(attrs={'class': 'form-control', 'id': 'tipo'}, choices=opciones),
             'Fecha': forms.DateInput(format=('%m/%d/%Y'),
                                      attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date', 'id': 'fecha'}),
@@ -39,8 +39,20 @@ class ProductoFormExistencia(forms.ModelForm):
             'existencia': 'Existencia',
         }
         widgets = {
-            'existencia': forms.TextInput(attrs={'class': 'form-control'}),
+            'existencia': forms.TextInput(attrs={'class': 'form-control', 'type' : 'number'}),
         }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 class ProductoFormDate(forms.ModelForm):

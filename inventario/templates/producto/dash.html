@@ -1,9 +1,13 @@
 {% extends 'Plantillas/DashBoard.html' %}
 
 {% block content %}
-<div id="container" style="width: 75%;">
+<div id="container" style="width: 75%;background-color:#DBDBDB;float: left;;">
     <canvas id="pie-chart"></canvas>
+</div><br><br>
+<div id="container" style="width: 75%;">
+    <canvas id="bar-chart-horizontal"></canvas>
 </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 <script>
@@ -11,25 +15,38 @@
     var config = {
         type: 'doughnut',
         data: {
-            labels: {{ labels|safe }},
-            datasets: [
-                {
-                    label: "Population (millions)",
-                    backgroundColor: ["#956802", "#799502", "#2F9502", "#029568", "#027995"],
-                    data: {{ data|safe }}
+            labels: {{ labels| safe }},
+    datasets: [
+        {
+            label: "Population (millions)",
+            backgroundColor: ["#956802", "#799502", "#2F9502", "#029568", "#027995"],
+            data: {{ data| safe }}
                 }
-            ]
+    ]
         },
 
-        options: {
-            responsive: true
-        }
+    options: {
+        responsive: true,
+        title: {
+                display: true,
+                text: 'Cantidad de productos',
+                fontStyle: 'bold',
+                fontSize: 30
+            }
+    }
     };
 
     window.onload = function () {
         var ctx = document.getElementById('pie-chart').getContext('2d');
         window.myPie = new Chart(ctx, config);
     };
+
+</script>
+<script>
+
+
+
+
 
 </script>
 {% endblock %}

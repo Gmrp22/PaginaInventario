@@ -4,17 +4,20 @@ from django.shortcuts import HttpResponse
 from django.urls import reverse_lazy
 from apps.producto.forms import ProductoForm, ProductoFormName, ProductoFormDate, ProductoFormExistencia
 from apps.producto.models import Producto
-
+from django.contrib import messages
 
 def main(request):
     return render(request, 'producto/index.html')
-
+def errora(request):
+    return render(request, 'producto/errora.html')
 
 def agregarProducto(request):
     if request.method == 'POST':
         form = ProductoForm(request.POST)
         if form.is_valid():
             form.save()
+        else:
+            return redirect("producto:errora")
         return redirect("producto:main")
     else:
         form = ProductoForm()
@@ -77,6 +80,8 @@ def listaE(request):
     else:
         form = ProductoFormExistencia()
     return render(request, 'producto/listaPorExistencia.html', {'form': form})
+
+
 
 
 def listaPN(request, nombre1):
