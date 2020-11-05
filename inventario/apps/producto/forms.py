@@ -65,7 +65,7 @@ class ProductoFormDate(forms.ModelForm):
         }
         widgets = {
             'Fecha': forms.DateInput(format=('%m/%d/%Y'),
-                                     attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date', 'id': 'fecha'}),
+                                     attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date', 'id': 'fecha','required':'true'}),
 
         }
 
